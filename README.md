@@ -1,4 +1,6 @@
-# SIGAA-RURAL
+<h1 align="center">
+  SIGAA-RURAL
+</h1>
 
 <h2 align="center">
   Fork do <a href=https://github.com/israNascimento/SIGAA-RURAL>israNascimento/SIGAA-RURAL</a>
