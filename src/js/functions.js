@@ -13,7 +13,7 @@ function discoverTimeToSubjects(code) {
     é utilizado para remover as strings vazias que aparecem quando o split ocorre.
   */
     // Há casos onde podem aparecer horários nesse formato '7T3 (20/09/2021 - 21/12/2021)'
-    const splitRegex = new RegExp(/\((.*?)\)|(\W)/);
+    const splitRegex = new RegExp(/([1-7]{1,2}[MTN][1-5]{1,2})/);
     let splitedCode = code.split(splitRegex).filter((value) => {
       if (value) {
         const isNotEmptyString = value.trim().length !== 0;
@@ -22,6 +22,7 @@ function discoverTimeToSubjects(code) {
       }
       return false;
     })
+    console.log(splitedCode);
 
     // Há casos onde podem aparecer horários nesse formato '7T3 (20/09/2021 - 21/12/2021)'
     let obs;
@@ -67,7 +68,8 @@ function discoverTimeToSubjectsAlternative(code) {
     dando match em qualquer valor que não seja por exemplo "white space". O filter
     é utilizado para remover as strings vazias que aparecem quando o split ocorre.
   */
-    const splitRegex = new RegExp(/\((.*?)\)|(\W)/);
+    const splitRegex = new RegExp(/([1-7]{1,2}[MTN][1-5]{1,2})/);
+    console.log(code.trim());
     let splitedCode = code.split(splitRegex).filter((value) => {
       if (value) {
         const isNotEmptyString = value.trim().length !== 0;
@@ -76,6 +78,7 @@ function discoverTimeToSubjectsAlternative(code) {
       }
       return false;
     })
+    console.log(splitedCode);
 
     // Há casos onde podem aparecer horários nesse formato '7T3 (20/09/2021 - 21/12/2021)'
     let obs;
@@ -122,28 +125,28 @@ function discoverTimeToSubjectsAlternative(code) {
 
 function mapTimes(turn, time) {
   const classTimes = {
-    "M": {
-        "1": "07:00 - 08:00 | ",
-        "2": "08:00 - 09:00 | ",
-        "3": "09:00 - 10:00 | ",
-        "4": "10:00 - 11:00 | ",
-        "5": "11:00 - 12:00 | "
+    M: {
+        1: "07:00 - 08:00 | ",
+        2: "08:00 - 09:00 | ",
+        3: "09:00 - 10:00 | ",
+        4: "10:00 - 11:00 | ",
+        5: "11:00 - 12:00 | "
     },
   
-    "T": {
-        "1": "12:00 - 13:00 | ",
-        "2": "13:00 - 14:00 | ",
-        "3": "14:00 - 15:00 | ",
-        "4": "15:00 - 16:00 | ",
-        "5": "16:00 - 17:00 | "
+    T: {
+        1: "12:00 - 13:00 | ",
+        2: "13:00 - 14:00 | ",
+        3: "14:00 - 15:00 | ",
+        4: "15:00 - 16:00 | ",
+        5: "16:00 - 17:00 | "
     },
     
-    "N": {
-        "1": "17:00 - 18:00 | ",
-        "2": "18:00 - 19:00 | ",
-        "3": "19:00 - 20:00 | ",
-        "4": "20:00 - 21:00 | ",
-        "5": "21:00 - 22:00 | "
+    N: {
+        1: "17:00 - 18:00 | ",
+        2: "18:00 - 19:00 | ",
+        3: "19:00 - 20:00 | ",
+        4: "20:00 - 21:00 | ",
+        5: "21:00 - 22:00 | "
     }
   }
   let finalStringTime = "";
@@ -155,8 +158,15 @@ function mapTimes(turn, time) {
 
   //Double switch para checar o turno e o horario (ex: M1, T3...)
   for(let i = 0; i<time.length; i++) {
-    finalStringTime += classTimes[turn][time[i]];
+    if (classTimes[turn][time[i]] !== null) {
+      console.log(classTimes[turn][time[i]]);
+      finalStringTime += classTimes[turn][time[i]];
+    }
+    // console.log(classTimes[turn][time[i]]);
   }
+  // console.log(turn);
+  // console.log(time);
+  // console.log(finalStringTime);
   return finalStringTime;
 }
 
