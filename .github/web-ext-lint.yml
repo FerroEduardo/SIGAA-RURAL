@@ -1,9 +1,17 @@
 name: "Lint"
 on:
   push:
+    paths:
+      - '**.js'
+      - '**.json'
+      - '**.css'
     branches:
-      - master
+      - main
+      - develop
   pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
   lint:
