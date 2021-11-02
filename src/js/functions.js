@@ -13,7 +13,7 @@ function discoverTimeToSubjects(code) {
     é utilizado para remover as strings vazias que aparecem quando o split ocorre.
   */
     // Há casos onde podem aparecer horários nesse formato '7T3 (20/09/2021 - 21/12/2021)'
-    const splitRegex = new RegExp(/([1-7]{1,2}[MTN][1-5]{1,2})/);
+    const splitRegex = new RegExp(/([1-7]{1,7}[MTN][1-5]{1,5})/);
     let splitedCode = code.split(splitRegex).filter((value) => {
       if (value) {
         const isNotEmptyString = value.trim().length !== 0;
@@ -67,7 +67,7 @@ function discoverTimeToSubjectsAlternative(code) {
     dando match em qualquer valor que não seja por exemplo "white space". O filter
     é utilizado para remover as strings vazias que aparecem quando o split ocorre.
   */
-    const splitRegex = new RegExp(/([1-7]{1,2}[MTN][1-5]{1,2})/);
+    const splitRegex = new RegExp(/([1-7]{1,7}[MTN][1-5]{1,5})/);
     let splitedCode = code.split(splitRegex).filter((value) => {
       if (value) {
         const isNotEmptyString = value.trim().length !== 0;
