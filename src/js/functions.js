@@ -13,7 +13,7 @@ function discoverTimeToSubjects(code) {
     é utilizado para remover as strings vazias que aparecem quando o split ocorre.
   */
     // Há casos onde podem aparecer horários nesse formato '7T3 (20/09/2021 - 21/12/2021)'
-    const splitRegex = new RegExp(/\((.*?)\)|(\W)/);
+    const splitRegex = new RegExp(/([1-7]{1,2}[MTN][1-5]{1,2})/);
     let splitedCode = code.split(splitRegex).filter((value) => {
       if (value) {
         const isNotEmptyString = value.trim().length !== 0;
@@ -67,7 +67,7 @@ function discoverTimeToSubjectsAlternative(code) {
     dando match em qualquer valor que não seja por exemplo "white space". O filter
     é utilizado para remover as strings vazias que aparecem quando o split ocorre.
   */
-    const splitRegex = new RegExp(/\((.*?)\)|(\W)/);
+    const splitRegex = new RegExp(/([1-7]{1,2}[MTN][1-5]{1,2})/);
     let splitedCode = code.split(splitRegex).filter((value) => {
       if (value) {
         const isNotEmptyString = value.trim().length !== 0;
@@ -130,67 +130,8 @@ function mapTimes(turn, time) {
 
   //Double switch para checar o turno e o horario (ex: M1, T3...)
   for(let i = 0; i<time.length; i++) {
-    switch(turn) {
-      case "M": {
-        switch(time[i]) {
-          case "1":
-            finalStringTime += "07:00 - 08:00 | "
-            break;
-          case "2":
-            finalStringTime += "08:00 - 09:00 | "
-            break;
-          case "3":
-            finalStringTime += "09:00 - 10:00 | "
-            break;
-          case "4":
-            finalStringTime += "10:00 - 11:00 | "
-            break;
-          case "5":
-            finalStringTime += "11:00 - 12:00 | "
-            break;
-        }
-      }
-      break;
-      case "T": {
-        switch(time[i]) {
-          case "1":
-            finalStringTime += "12:00 - 13:00 | "
-            break;
-          case "2":
-            finalStringTime += "13:00 - 14:00 | "
-            break;
-          case "3":
-            finalStringTime += "14:00 - 15:00 | "
-            break;
-          case "4":
-            finalStringTime += "15:00 - 16:00 | "
-            break;
-          case "5":
-            finalStringTime += "16:00 - 17:00 | "
-            break;
-        }
-      }
-      break;
-      case "N": {
-        switch(time[i]) {
-          case "1":
-            finalStringTime += "17:00 - 18:00 | "
-            break;
-          case "2":
-            finalStringTime += "18:00 - 19:00 | "
-            break;
-          case "3":
-            finalStringTime += "19:00 - 20:00 | "
-            break;
-          case "4":
-            finalStringTime += "20:00 - 21:00 | "
-            break;
-          case "5":
-            finalStringTime += "21:00 - 22:00 | "
-            break;
-        }
-      }
-      break;
+    if (CLASS_TIMES[turn][time[i]] !== null) {
+      finalStringTime += CLASS_TIMES[turn][time[i]];
     }
   }
   return finalStringTime;

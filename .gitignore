@@ -7,3 +7,4 @@ node_modules/
 .eslintcache
 .env
 .env.test
+web-ext-artifacts/
