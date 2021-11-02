@@ -9,6 +9,5 @@ if (MATRICULA_EXTRAORDIONARIA_TABLE != null) {
     if (code.length > 0) {
       currentLine.children[4].innerHTML = discoverTimeToSubjects(code);
     }
-    console.log(code);
   }
 }
