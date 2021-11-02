@@ -4,8 +4,8 @@
   "description": "Melhorias de usabilidade no SIGAA da UFRRJ",
   "content_scripts": [
     {
-      "js": ["selects.js", "functions.js", "main.js", "extraordinaria.js"],
-      "css": ["tooltip.css"],
+      "js": ["src/js/selects.js", "src/js/functions.js", "src/js/main.js", "src/js/extraordinaria.js"],
+      "css": ["src/css/tooltip.css"],
       "matches": ["https://sigaa.ufrrj.br/*"]
     }
   ],
