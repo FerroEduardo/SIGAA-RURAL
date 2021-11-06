@@ -170,7 +170,7 @@ if (ALL_CLASSES_TABLE && IS_BETA) {
     ALL_CLASSES_ROWS[i].children[3].classList.add('horario-tooltip');
     let result = discoverTimeToSubjectsAlternative(ALL_CLASSES_ROWS[i].children[3].innerHTML)
     result.classList.add('tooltiptext');
-    result.classList.add('aaaa');
+    result.classList.add('previous-classes');
     ALL_CLASSES_ROWS[i].children[3].appendChild(result);
   }
 }
