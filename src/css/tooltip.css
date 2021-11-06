@@ -22,3 +22,7 @@
 .horario-tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+.tooltiptext.aaaa {
+    left: 100% !important;
+}
