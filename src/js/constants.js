@@ -51,7 +51,7 @@ const TIME_BOARD_ENROLLMENT_TABLE = document.querySelector('div.box-secao:nth-ch
 
 const IS_BETA = document.querySelector('.logo > span:nth-child(2)');
 
-const ALL_CLASSES_TABLE = document.querySelector("table.listagem");
+const ALL_CLASSES_TABLE = document.querySelector("table.listagem:not([id^='lista-turmas'])");
 
 const ALL_CLASSES_ROWS = document.querySelectorAll(".listagem tr.linhaPar, .listagem tr.linhaImpar");
 
