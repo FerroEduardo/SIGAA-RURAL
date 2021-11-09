@@ -1,10 +1,10 @@
 {
   "name": "SIGAA Rural",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "description": "Melhorias de usabilidade no SIGAA da UFRRJ",
   "content_scripts": [
     {
-      "js": ["src/js/constants.js", "src/js/functions.js", "src/js/main.js", "src/js/extraordinaria.js"],
+      "js": ["src/js/constants.js", "src/js/tema.js", "src/js/functions.js", "src/js/main.js", "src/js/extraordinaria.js"],
       "css": ["src/css/tooltip.css"],
       "matches": ["https://sigaa.ufrrj.br/*"]
     }

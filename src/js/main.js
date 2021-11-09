@@ -176,3 +176,8 @@ if (ALL_CLASSES_TABLE) {
     rows[i].children[3].appendChild(result);
   }
 }
+
+if (IS_BETA) {
+  let paletaDeCoresPadrao = document.querySelector('#detalhes-usuario');
+  paletaDeCoresPadrao.appendChild(generateThemeButton());
+}
