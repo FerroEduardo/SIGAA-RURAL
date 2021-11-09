@@ -164,3 +164,15 @@ if (TIME_BOARD_ENROLLMENT_TABLE != null) {
     element.textContent = discoverTimeToBoard(element.textContent);
   }
 }
+
+if (ALL_CLASSES_TABLE) {
+  let tbody = ALL_CLASSES_TABLE.tBodies[1];
+  let rows = tbody.querySelectorAll('.listagem tr.linhaPar, .listagem tr.linhaImpar');
+  for (let i = 0; i < rows.length; i++) {
+    rows[i].children[3].classList.add('horario-tooltip');
+    let result = discoverTimeToSubjectsAlternative(rows[i].children[3].innerHTML)
+    result.classList.add('tooltiptext');
+    result.classList.add('previous-classes');
+    rows[i].children[3].appendChild(result);
+  }
+}

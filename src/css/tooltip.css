@@ -22,3 +22,7 @@
 .horario-tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+.tooltiptext.previous-classes {
+    left: 100% !important;
+}
