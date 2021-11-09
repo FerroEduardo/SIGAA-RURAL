@@ -116,7 +116,6 @@ function discoverTimeToSubjectsAlternative(code) {
   if (obs) {
     resultElement.appendChild(document.createElement("br"));
     resultElement.appendChild(document.createTextNode(obs));
-    console.log(obs);
   }
   return resultElement;
 }

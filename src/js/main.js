@@ -166,11 +166,13 @@ if (TIME_BOARD_ENROLLMENT_TABLE != null) {
 }
 
 if (ALL_CLASSES_TABLE && IS_BETA) {
-  for (let i = 0; i < ALL_CLASSES_ROWS.length; i++) {
-    ALL_CLASSES_ROWS[i].children[3].classList.add('horario-tooltip');
-    let result = discoverTimeToSubjectsAlternative(ALL_CLASSES_ROWS[i].children[3].innerHTML)
+  let tbody = ALL_CLASSES_TABLE.tBodies[1];
+  let rows = tbody.querySelectorAll('.listagem tr.linhaPar, .listagem tr.linhaImpar');
+  for (let i = 0; i < rows.length; i++) {
+    rows[i].children[3].classList.add('horario-tooltip');
+    let result = discoverTimeToSubjectsAlternative(rows[i].children[3].innerHTML)
     result.classList.add('tooltiptext');
     result.classList.add('previous-classes');
-    ALL_CLASSES_ROWS[i].children[3].appendChild(result);
+    rows[i].children[3].appendChild(result);
   }
 }
