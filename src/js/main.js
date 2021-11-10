@@ -178,8 +178,14 @@ if (ALL_CLASSES_TABLE) {
 }
 
 if (IS_BETA) {
-  applyThemeColors().then(()=> {
-    let paletaDeCoresPadrao = document.querySelector('#detalhes-usuario');
-    paletaDeCoresPadrao.appendChild(generateThemeButton());
+  isThemeActivated().then((isActivated) => {
+    const paletaDeCoresPadrao = document.querySelector('#detalhes-usuario');
+    if (isActivated) {
+      applyThemeColors().then(() => {
+        paletaDeCoresPadrao.appendChild(generateThemeButton());
+      });
+    } else {
+      paletaDeCoresPadrao.appendChild(generateThemeButton());
+    }
   });
 }

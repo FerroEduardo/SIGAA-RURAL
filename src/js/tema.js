@@ -243,7 +243,7 @@ function generateThemeButton() {
   }
 
   let applyThemeButton = document.createElement('button');
-  applyThemeButton.style.width = '100%';
+  applyThemeButton.style.width = '50%';
   applyThemeButton.style.height = '18px';
   applyThemeButton.innerText = 'Aplicar'
   applyThemeButton.onclick = function (e) {
@@ -251,7 +251,22 @@ function generateThemeButton() {
     applyThemeColors();
     e.stopPropagation();
   }
+
+  let disableThemeButton = document.createElement('button');
+  disableThemeButton.style.width = '50%';
+  disableThemeButton.style.height = '18px';
+  disableThemeButton.innerText = 'Desativar'
+  disableThemeButton.onclick = function (e) {
+    if (isThemeActivated() && confirm('Para desativar o tema, é necessário atualizar a página.\nDeseja continuar?')) {
+      disableTheme();
+      isThemeActivated()
+      document.location.reload(true);
+    }
+    e.stopPropagation();
+  }
+
   menuContent.appendChild(applyThemeButton);
+  menuContent.appendChild(disableThemeButton);
 
   return menuItem;
 }
@@ -268,9 +283,22 @@ async function applyThemeColors() {
     let themeStyle = document.createElement('style');
     themeStyle.appendChild(themeTextNode);
     document.head.appendChild(themeStyle);
+    enableTheme();
   }, (error)=> {
     console.error(error);
     saveThemeColors();
+  });
+}
+
+async function disableTheme() {
+  await browser.storage.local.set({
+    themeActivated: false
+  });
+}
+
+async function enableTheme() {
+  await browser.storage.local.set({
+    themeActivated: true
   });
 }
 
@@ -280,8 +308,6 @@ function saveThemeColors() {
     cor1: document.getElementById('cor1').value, 
     cor2: document.getElementById('cor2').value, 
     cor3: document.getElementById('cor3').value
-  }, (error)=> {
-    console.error(error);
   });
 }
 
@@ -299,11 +325,18 @@ function rgbToHex(rgb) {
   let rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
   let result, r, g, b, hex = "";
   if ( (result = rgbRegex.exec(rgb)) ) {
-      r = componentFromStr(result[1], result[2]);
-      g = componentFromStr(result[3], result[4]);
-      b = componentFromStr(result[5], result[6]);
-
-      hex = "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    r = componentFromStr(result[1], result[2]);
+    g = componentFromStr(result[3], result[4]);
+    b = componentFromStr(result[5], result[6]);
+    hex = "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
   return hex;
+}
+
+async function isThemeActivated() {
+  return browser.storage.local.get({
+    themeActivated: false
+  }).then((object) => {
+    return object.themeActivated;
+  });
 }
