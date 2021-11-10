@@ -211,6 +211,7 @@ let generateCSSTheme = function (cor1, cor2, cor3, cor4) {
         }
     `;
 }
+
 function generateThemeButton() {
   let menuItem = document.createElement('li');
   let menuContent = document.createElement('ul');
@@ -247,8 +248,7 @@ function generateThemeButton() {
   applyThemeButton.innerText = 'Aplicar'
   applyThemeButton.onclick = function (e) {
     saveThemeColors();
-    applyThemeColors();    
-
+    applyThemeColors();
     e.stopPropagation();
   }
   menuContent.appendChild(applyThemeButton);
@@ -256,8 +256,8 @@ function generateThemeButton() {
   return menuItem;
 }
 
-function applyThemeColors() {
-  loadThemeColors().then((object)=>{
+async function applyThemeColors() {
+  await loadThemeColors().then((object)=>{
     let themeTextNode = document.createTextNode(
       generateCSSTheme(
         object['cor0'], 
@@ -280,6 +280,8 @@ function saveThemeColors() {
     cor1: document.getElementById('cor1').value, 
     cor2: document.getElementById('cor2').value, 
     cor3: document.getElementById('cor3').value
+  }, (error)=> {
+    console.error(error);
   });
 }
 
