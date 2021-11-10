@@ -237,7 +237,9 @@ function generateThemeButton() {
 
   let applyThemeButton = document.createElement('button');
   applyThemeButton.style.width = '50%';
-  applyThemeButton.style.height = '18px';
+  applyThemeButton.style.height = '20px';
+  applyThemeButton.style.marginTop = '2px';
+  applyThemeButton.style.marginBottom = '5px';
   applyThemeButton.innerText = 'Aplicar'
   applyThemeButton.onclick = function (e) {
     saveThemeColors();
@@ -247,7 +249,9 @@ function generateThemeButton() {
 
   let disableThemeButton = document.createElement('button');
   disableThemeButton.style.width = '50%';
-  disableThemeButton.style.height = '18px';
+  disableThemeButton.style.height = '20px';
+  disableThemeButton.style.marginTop = '2px';
+  disableThemeButton.style.marginBottom = '5px';
   disableThemeButton.innerText = 'Desativar'
   disableThemeButton.onclick = function (e) {
     if (isThemeActivated() && confirm('Para desativar o tema, é necessário atualizar a página.\nDeseja continuar?')) {
@@ -336,4 +340,11 @@ async function isThemeActivated() {
   }).then((object) => {
     return object.themeActivated;
   });
+}
+
+function createDivider() {
+    let divider = document.createElement('li');
+    divider.classList.add('divider');
+    divider.setAttribute('role', 'presentation');
+    return divider;
 }

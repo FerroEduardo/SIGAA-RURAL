@@ -179,13 +179,14 @@ if (ALL_CLASSES_TABLE) {
 
 if (IS_BETA) {
   isThemeActivated().then((isActivated) => {
-    const paletaDeCoresPadrao = document.querySelector('#detalhes-usuario');
+    const detalhesUsuario = document.querySelector('#detalhes-usuario');
+    detalhesUsuario.appendChild(createDivider());
     if (isActivated) {
       applyThemeColors().then(() => {
-        paletaDeCoresPadrao.appendChild(generateThemeButton());
+        detalhesUsuario.appendChild(generateThemeButton());
       });
     } else {
-      paletaDeCoresPadrao.appendChild(generateThemeButton());
+      detalhesUsuario.appendChild(generateThemeButton());
     }
   });
 }
