@@ -1,4 +1,4 @@
-let generateCSSTheme = function (COR_1, COR_2, COR_3, COR_4) {    
+let generateCSSTheme = function (COR_1, COR_2, COR_3, COR_4) {
     return `
         .hover-bordered-bottom:hover {
             border-bottom: 3px solid ${COR_1};
@@ -210,4 +210,69 @@ let generateCSSTheme = function (COR_1, COR_2, COR_3, COR_4) {
             border-bottom: 1px solid ${COR_4};
         }
     `;
+}
+function generateThemeButton() {
+  let menuItem = document.createElement('li');
+  let menuContent = document.createElement('ul');
+  menuContent.classList.add('acoes-usuario');
+  menuItem.appendChild(menuContent);
+  
+  let getCurrentColor = {
+    0: rgbToHex(getComputedStyle(document.getElementById('main-menu')).backgroundColor),
+    1: rgbToHex(getComputedStyle(document.getElementById('ufrn-rodape')).backgroundColor),
+    2: rgbToHex(getComputedStyle(document.querySelector('td.periodo')).backgroundColor),
+    3: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow')).borderTopColor)
+  }
+  
+  for (let i = 0; i < 4; i++) {
+    let colorButton = document.createElement('input');
+    colorButton.id = `COR_${i}`
+    colorButton.type = 'color';
+    colorButton.value = getCurrentColor[i]
+    colorButton.style.width = '71px';
+    colorButton.style.height = '25px';
+    colorButton.onclick = function(e) {
+      e.stopPropagation();
+    };
+    menuContent.appendChild(colorButton);
+  }
+  let applyButton = document.createElement('button');
+  applyButton.style.width = '100%';
+  applyButton.style.height = '18px';
+  applyButton.innerText = 'Aplicar'
+  applyButton.onclick = function (e) {
+    let themeTextNode = document.createTextNode(
+      generateCSSTheme(
+        document.getElementById('COR_0').value, 
+        document.getElementById('COR_1').value, 
+        document.getElementById('COR_2').value, 
+        document.getElementById('COR_3').value
+      ));
+    let themeStyle = document.createElement('style');
+    themeStyle.appendChild(themeTextNode);
+    document.head.appendChild(themeStyle);
+    e.stopPropagation();
+  }
+  menuContent.appendChild(applyButton);
+
+  return menuItem;
+}
+  
+function componentFromStr(numStr, percent) {
+  var num = Math.max(0, parseInt(numStr, 10));
+  return percent ?
+      Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+}
+  
+function rgbToHex(rgb) {
+  var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
+  var result, r, g, b, hex = "";
+  if ( (result = rgbRegex.exec(rgb)) ) {
+      r = componentFromStr(result[1], result[2]);
+      g = componentFromStr(result[3], result[4]);
+      b = componentFromStr(result[5], result[6]);
+
+      hex = "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  }
+  return hex;
 }
