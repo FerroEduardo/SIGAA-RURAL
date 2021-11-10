@@ -246,21 +246,45 @@ function generateThemeButton() {
   applyThemeButton.style.height = '18px';
   applyThemeButton.innerText = 'Aplicar'
   applyThemeButton.onclick = function (e) {
-    let themeTextNode = document.createTextNode(
-      generateCSSTheme(
-        document.getElementById('cor0').value, 
-        document.getElementById('cor1').value, 
-        document.getElementById('cor2').value, 
-        document.getElementById('cor3').value
-      ));
-    let themeStyle = document.createElement('style');
-    themeStyle.appendChild(themeTextNode);
-    document.head.appendChild(themeStyle);
+    saveThemeColors();
+    applyThemeColors();    
+
     e.stopPropagation();
   }
   menuContent.appendChild(applyThemeButton);
 
   return menuItem;
+}
+
+function applyThemeColors() {
+  loadThemeColors().then((object)=>{
+    let themeTextNode = document.createTextNode(
+      generateCSSTheme(
+        object['cor0'], 
+        object['cor1'], 
+        object['cor2'], 
+        object['cor3']
+      ));
+    let themeStyle = document.createElement('style');
+    themeStyle.appendChild(themeTextNode);
+    document.head.appendChild(themeStyle);
+  }, (error)=> {
+    console.error(error);
+    saveThemeColors();
+  });
+}
+
+function saveThemeColors() {
+  browser.storage.local.set({
+    cor0: document.getElementById('cor0').value, 
+    cor1: document.getElementById('cor1').value, 
+    cor2: document.getElementById('cor2').value, 
+    cor3: document.getElementById('cor3').value
+  });
+}
+
+function loadThemeColors() {
+  return browser.storage.local.get();
 }
   
 function componentFromStr(numStr, percent) {

@@ -180,4 +180,5 @@ if (ALL_CLASSES_TABLE) {
 if (IS_BETA) {
   let paletaDeCoresPadrao = document.querySelector('#detalhes-usuario');
   paletaDeCoresPadrao.appendChild(generateThemeButton());
+  applyThemeColors();
 }
