@@ -15,13 +15,6 @@ let generateCSSTheme = function (cor1, cor2, cor3, cor4) {
         #painel-usuario .painel-usuario-identificacao span {
             color: ${cor1};
         }
-        #painel-usuario .painel-usuario-foto {
-            display: table-cell;
-            width: 50px;
-            height: 50px;
-            padding: 0 5px;
-            vertical-align: middle;
-        }
         #detalhes-usuario td.detalhes-usuario-nome {
             color: ${cor1};
         }
