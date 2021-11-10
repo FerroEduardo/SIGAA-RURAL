@@ -252,7 +252,6 @@ function generateThemeButton() {
   disableThemeButton.onclick = function (e) {
     if (isThemeActivated() && confirm('Para desativar o tema, é necessário atualizar a página.\nDeseja continuar?')) {
       disableTheme();
-      isThemeActivated()
       document.location.reload(true);
     }
     e.stopPropagation();
@@ -275,7 +274,12 @@ async function applyThemeColors() {
       ));
     let themeStyle = document.createElement('style');
     themeStyle.appendChild(themeTextNode);
-    document.head.appendChild(themeStyle);
+    themeStyle.id = 'custom-theme';
+    if (document.getElementById('custom-theme')) {
+        document.getElementById('custom-theme').replaceWith(themeStyle);
+    } else {
+        document.head.appendChild(themeStyle);
+    }
     enableTheme();
   }, (error)=> {
     console.error(error);
