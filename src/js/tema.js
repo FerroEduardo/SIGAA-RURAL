@@ -223,24 +223,29 @@ function generateThemeButton() {
     2: rgbToHex(getComputedStyle(document.querySelector('td.periodo')).backgroundColor),
     3: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow')).borderTopColor)
   }
-  
-  for (let i = 0; i < 4; i++) {
+
+  const generateColorInputButton = (id, value) => {
     let colorButton = document.createElement('input');
-    colorButton.id = `cor${i}`
+    colorButton.id = id;
     colorButton.type = 'color';
-    colorButton.value = getCurrentColor[i]
+    colorButton.value = value;
     colorButton.style.width = '71px';
     colorButton.style.height = '25px';
     colorButton.onclick = function(e) {
       e.stopPropagation();
     };
-    menuContent.appendChild(colorButton);
+    return colorButton;
   }
-  let applyButton = document.createElement('button');
-  applyButton.style.width = '100%';
-  applyButton.style.height = '18px';
-  applyButton.innerText = 'Aplicar'
-  applyButton.onclick = function (e) {
+  
+  for (let i = 0; i < 4; i++) {
+    menuContent.appendChild(generateColorInputButton(`cor${i}`, getCurrentColor[i]));
+  }
+
+  let applyThemeButton = document.createElement('button');
+  applyThemeButton.style.width = '100%';
+  applyThemeButton.style.height = '18px';
+  applyThemeButton.innerText = 'Aplicar'
+  applyThemeButton.onclick = function (e) {
     let themeTextNode = document.createTextNode(
       generateCSSTheme(
         document.getElementById('cor0').value, 
@@ -253,7 +258,7 @@ function generateThemeButton() {
     document.head.appendChild(themeStyle);
     e.stopPropagation();
   }
-  menuContent.appendChild(applyButton);
+  menuContent.appendChild(applyThemeButton);
 
   return menuItem;
 }
