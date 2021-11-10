@@ -95,6 +95,9 @@ let generateCSSTheme = function (cor1, cor2, cor3, cor4) {
         #carousel-noticias .box-noticia-conteudo h4 {
             color: ${cor1};
         }
+        #carousel-noticias .carousel-indicators li.active {
+            background-color: ${cor1};
+        }
         .tabela-selecao-vinculo .check-ativo {
             color: ${cor1};
         }
