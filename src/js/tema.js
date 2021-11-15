@@ -253,7 +253,7 @@ function generateThemeButton() {
       });
     }
   }
-  
+
   for (let i = 0; i < 4; i++) {
     menuContent.appendChild(generateColorInputButton(`cor${i}`, getCurrentColor[i]));
   }
@@ -286,9 +286,15 @@ function generateThemeButton() {
           });
         }
       } else {
-        enableTheme().then(() => {
-          toggleThemePanel(!isActivated);
-        });
+        if (confirm('Para ativar o tema, é necessário atualizar a página.\nDeseja continuar?')) {
+          enableTheme().then(() => {
+            document.location.reload(true);
+          });
+        }
+        // enableTheme().then(() => {
+        //   loadThemeColors();
+        //   toggleThemePanel(!isActivated);
+        // });
       }
     });
     e.stopPropagation();
@@ -303,13 +309,13 @@ function generateThemeButton() {
 }
 
 async function applyThemeColors() {
-  await loadThemeColors().then((object)=>{
+  await loadThemeColors().then((result)=>{
     let themeTextNode = document.createTextNode(
       generateCSSTheme(
-        object['cor0'], 
-        object['cor1'], 
-        object['cor2'], 
-        object['cor3']
+        result['cor0'], 
+        result['cor1'], 
+        result['cor2'], 
+        result['cor3']
       ));
     let themeStyle = document.createElement('style');
     themeStyle.appendChild(themeTextNode);
