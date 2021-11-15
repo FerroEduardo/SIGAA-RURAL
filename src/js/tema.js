@@ -262,6 +262,7 @@ function generateThemeButton() {
   applyThemeButton.style.display = 'None';
   applyThemeButton.style.width = '50%';
   applyThemeButton.style.height = '20px';
+  applyThemeButton.classList.add('rainbow-border');
   applyThemeButton.style.marginTop = '2px';
   applyThemeButton.style.marginBottom = '5px';
   applyThemeButton.innerText = 'Aplicar';
