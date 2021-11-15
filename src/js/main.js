@@ -176,3 +176,17 @@ if (ALL_CLASSES_TABLE) {
     rows[i].children[3].appendChild(result);
   }
 }
+
+if (IS_BETA) {
+  isThemeActivated().then((isActivated) => {
+    const detalhesUsuario = document.querySelector('#detalhes-usuario');
+    detalhesUsuario.appendChild(createDivider());
+    if (isActivated) {
+      applyThemeColors().then(() => {
+        detalhesUsuario.appendChild(generateThemeButton());
+      });
+    } else {
+      detalhesUsuario.appendChild(generateThemeButton());
+    }
+  });
+}
