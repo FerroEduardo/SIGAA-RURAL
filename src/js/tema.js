@@ -236,7 +236,6 @@ function generateThemeButton() {
   }
 
   function toggleThemePanel(status) {
-    console.log(status);
     if (status) {
       applyThemeButton.style.display = 'Unset';
       toggleThemeButton.innerText = 'Desativar'
@@ -291,10 +290,6 @@ function generateThemeButton() {
             document.location.reload(true);
           });
         }
-        // enableTheme().then(() => {
-        //   loadThemeColors();
-        //   toggleThemePanel(!isActivated);
-        // });
       }
     });
     e.stopPropagation();
