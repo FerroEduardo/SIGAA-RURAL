@@ -221,9 +221,10 @@ function generateThemeButton() {
     3: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow')).borderTopColor)
   }
 
-  const generateColorInputButton = (id, value) => {
+  function generateColorInputButton(id, value) {
     let colorButton = document.createElement('input');
     colorButton.id = id;
+    colorButton.classList.add('input-color-theme');
     colorButton.type = 'color';
     colorButton.value = value;
     colorButton.style.width = '71px';
@@ -233,39 +234,69 @@ function generateThemeButton() {
     };
     return colorButton;
   }
+
+  function toggleThemePanel(status) {
+    console.log(status);
+    if (status) {
+      applyThemeButton.style.display = 'Unset';
+      toggleThemeButton.innerText = 'Desativar'
+      toggleThemeButton.style.width = '50%';
+      document.querySelectorAll('.input-color-theme').forEach((element)=>{
+        element.style.display = 'Unset';
+      });
+    } else {
+      applyThemeButton.style.display = 'None';
+      toggleThemeButton.innerText = 'Ativar'
+      toggleThemeButton.style.width = '100%';
+      document.querySelectorAll('.input-color-theme').forEach((element)=>{
+        element.style.display = 'None';
+      });
+    }
+  }
   
   for (let i = 0; i < 4; i++) {
     menuContent.appendChild(generateColorInputButton(`cor${i}`, getCurrentColor[i]));
   }
 
   let applyThemeButton = document.createElement('button');
+  applyThemeButton.style.display = 'None';
   applyThemeButton.style.width = '50%';
   applyThemeButton.style.height = '20px';
   applyThemeButton.style.marginTop = '2px';
   applyThemeButton.style.marginBottom = '5px';
-  applyThemeButton.innerText = 'Aplicar'
+  applyThemeButton.innerText = 'Aplicar';
   applyThemeButton.onclick = function (e) {
     saveThemeColors();
     applyThemeColors();
     e.stopPropagation();
   }
 
-  let disableThemeButton = document.createElement('button');
-  disableThemeButton.style.width = '50%';
-  disableThemeButton.style.height = '20px';
-  disableThemeButton.style.marginTop = '2px';
-  disableThemeButton.style.marginBottom = '5px';
-  disableThemeButton.innerText = 'Desativar'
-  disableThemeButton.onclick = function (e) {
-    if (isThemeActivated() && confirm('Para desativar o tema, é necessário atualizar a página.\nDeseja continuar?')) {
-      disableTheme();
-      document.location.reload(true);
-    }
+  let toggleThemeButton = document.createElement('button');
+  toggleThemeButton.style.height = '20px';
+  toggleThemeButton.style.marginTop = '2px';
+  toggleThemeButton.style.marginBottom = '5px';
+
+  toggleThemeButton.onclick = function (e) {
+    isThemeActivated().then((isActivated) => {
+      if (isActivated) {
+        if (confirm('Para desativar o tema, é necessário atualizar a página.\nDeseja continuar?')) {
+          disableTheme().then(() => {
+            document.location.reload(true);
+          });
+        }
+      } else {
+        enableTheme().then(() => {
+          toggleThemePanel(!isActivated);
+        });
+      }
+    });
     e.stopPropagation();
-  }
+  };
+
+  isThemeActivated().then(toggleThemePanel);
 
   menuContent.appendChild(applyThemeButton);
-  menuContent.appendChild(disableThemeButton);
+  menuContent.appendChild(toggleThemeButton);
 
   return menuItem;
 }
@@ -346,8 +377,8 @@ async function isThemeActivated() {
 }
 
 function createDivider() {
-    let divider = document.createElement('li');
-    divider.classList.add('divider');
-    divider.setAttribute('role', 'presentation');
-    return divider;
+  let divider = document.createElement('li');
+  divider.classList.add('divider');
+  divider.setAttribute('role', 'presentation');
+  return divider;
 }
