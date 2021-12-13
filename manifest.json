@@ -5,7 +5,7 @@
   "content_scripts": [
     {
       "js": ["src/js/constants.js", "src/js/tema.js", "src/js/functions.js", "src/js/main.js", "src/js/extraordinaria.js"],
-      "css": ["src/css/tooltip.css", "src/css/rainbow.css"],
+      "css": ["src/css/tema.css", "src/css/tooltip.css", "src/css/rainbow.css"],
       "matches": ["https://sigaa.ufrrj.br/*"]
     }
   ],

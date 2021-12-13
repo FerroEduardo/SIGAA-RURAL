@@ -1,0 +1,10 @@
+#menu-cores {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.input-color-theme {
+    flex-shrink: 1;
+    flex-grow: 1;
+}
