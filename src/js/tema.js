@@ -226,15 +226,33 @@ function generateThemeButton() {
   menuItem.appendChild(menuContent);
   
   let getCurrentColor = {
-    0: rgbToHex(getComputedStyle(document.getElementById('barra-sistema')).backgroundColor),
-    1: rgbToHex(getComputedStyle(document.getElementById('ufrn-rodape') || document.getElementById('barra-sistema')).backgroundColor),
-    2: rgbToHex(getComputedStyle(document.querySelector('td.periodo') || document.getElementById('barra-sistema')).backgroundColor),
-    3: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow') || document.getElementById('barra-sistema')).borderTopColor),
-    4: rgbToHex(getComputedStyle(document.querySelector('body')).backgroundColor),
-    5: rgbToHex(getComputedStyle(document.getElementById('ufrn-cabecalho')).backgroundColor)
+    0: {
+      cor: rgbToHex(getComputedStyle(document.getElementById('barra-sistema')).backgroundColor),
+      texto: 'Barra do Sistema, alguns textos e abas'
+    },
+    1: {
+      cor: rgbToHex(getComputedStyle(document.getElementById('ufrn-rodape') || document.getElementById('barra-sistema')).backgroundColor),
+      texto: 'Rodapé'
+    },
+    2: {
+      cor: rgbToHex(getComputedStyle(document.querySelector('td.periodo') || document.getElementById('barra-sistema')).backgroundColor),
+      texto: 'Alguns headers de tabelas'
+    },
+    3: {
+      cor: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow') || document.getElementById('barra-sistema')).borderTopColor),
+      texto: 'Setas'
+    },
+    4: {
+      cor: rgbToHex(getComputedStyle(document.querySelector('body')).backgroundColor),
+      texto: 'Background'
+    },
+    5: {
+      cor: rgbToHex(getComputedStyle(document.getElementById('ufrn-cabecalho')).backgroundColor),
+      texto: 'Barra do Painel'
+    }
   }
 
-  function generateColorInputButton(id, value) {
+  function generateColorInputButton(id, value, title) {
     let colorButton = document.createElement('input');
     colorButton.id = id;
     colorButton.classList.add('input-color-theme');
@@ -242,6 +260,7 @@ function generateThemeButton() {
     colorButton.value = value;
     colorButton.style.width = '71px';
     colorButton.style.height = '25px';
+    colorButton.title = title;
     colorButton.onclick = function(e) {
       e.stopPropagation();
     };
@@ -267,7 +286,7 @@ function generateThemeButton() {
   }
 
   for (let i = 0; i < Object.keys(getCurrentColor).length; i++) {
-    menuCores.appendChild(generateColorInputButton(`cor${i}`, getCurrentColor[i]));
+    menuCores.appendChild(generateColorInputButton(`cor${i}`, getCurrentColor[i].cor, getCurrentColor[i].texto));
   }
 
   let applyThemeButton = document.createElement('button');
