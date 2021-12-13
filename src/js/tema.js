@@ -270,14 +270,14 @@ function generateThemeButton() {
   function toggleThemePanel(status) {
     if (status) {
       applyThemeButton.style.display = 'Unset';
-      toggleThemeButton.innerText = 'Desativar'
+      toggleThemeButton.innerText = 'Desativar tema'
       toggleThemeButton.style.width = '50%';
       document.querySelectorAll('.input-color-theme').forEach((element)=>{
         element.style.display = 'Unset';
       });
     } else {
       applyThemeButton.style.display = 'None';
-      toggleThemeButton.innerText = 'Ativar'
+      toggleThemeButton.innerText = 'Ativar tema'
       toggleThemeButton.style.width = '100%';
       document.querySelectorAll('.input-color-theme').forEach((element)=>{
         element.style.display = 'None';
