@@ -215,10 +215,10 @@ function generateThemeButton() {
   menuItem.appendChild(menuContent);
   
   let getCurrentColor = {
-    0: rgbToHex(getComputedStyle(document.getElementById('main-menu')).backgroundColor),
-    1: rgbToHex(getComputedStyle(document.getElementById('ufrn-rodape')).backgroundColor),
-    2: rgbToHex(getComputedStyle(document.querySelector('td.periodo')).backgroundColor),
-    3: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow')).borderTopColor)
+    0: rgbToHex(getComputedStyle(document.getElementById('barra-sistema')).backgroundColor),
+    1: rgbToHex(getComputedStyle(document.getElementById('ufrn-rodape') || document.getElementById('barra-sistema')).backgroundColor),
+    2: rgbToHex(getComputedStyle(document.querySelector('td.periodo') || document.getElementById('barra-sistema')).backgroundColor),
+    3: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow') || document.getElementById('barra-sistema')).borderTopColor)
   }
 
   function generateColorInputButton(id, value) {
