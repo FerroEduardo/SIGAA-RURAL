@@ -1,170 +1,171 @@
-let generateCSSTheme = function (cor1, cor2, cor3, cor4) {
+function generateCSSTheme() {
+  const cores = arguments;
     return `
         .hover-bordered-bottom:hover {
-            border-bottom: 3px solid ${cor1};
+            border-bottom: 3px solid ${cores[0]};
         }
         #barra-sistema {
-            background-color: ${cor1};
+            background-color: ${cores[0]};
         }
         #barra-sistema .botao-sair a:hover {
-            background-color: ${cor2};
+            background-color: ${cores[1]};
         }
         #painel-usuario .logo > span {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         #painel-usuario .painel-usuario-identificacao span {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         #detalhes-usuario td.detalhes-usuario-nome {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         #detalhes-usuario .acoes-usuario li a:hover,
         #detalhes-usuario .acoes-usuario li a:focus {
-            border-bottom: 5px solid ${cor1};
+            border-bottom: 5px solid ${cores[0]};
         }
-        ul#paleta-cores li.cor10,
-        ul#paleta-cores-horizontal li.cor10 {
-            background-color: ${cor1};
+        ul#paleta-cores li.cores[0]0,
+        ul#paleta-cores-horizontal li.cores[0]0 {
+            background-color: ${cores[0]};
         }
         #ufrn-rodape {
-            background-color: ${cor2};
+            background-color: ${cores[1]};
         }
         #acesso-rapido .carousel-control:hover {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         .menu-lateral > ul > li.selecionado {
-            border-left: 4px solid ${cor1};
+            border-left: 4px solid ${cores[0]};
         }
         .search input[type="text"]:focus {
             border: none;
-            border-bottom: 0.5px solid ${cor1};
+            border-bottom: 0.5px solid ${cores[0]};
         }
         .page-sidebar .sidebar-header-wrapper .searchicon {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         .page-sidebar .sidebar-menu li:before {
-            background-color: ${cor1};
+            background-color: ${cores[0]};
         }
         .table .acoes a:hover {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         .table > tbody > tr.destaque td {
-            background: ${cor3} !important;
+            background: ${cores[2]} !important;
         }
         .table > tbody > tr.secao td {
-            border-bottom: 1px solid ${cor1};
+            border-bottom: 1px solid ${cores[0]};
         }
         .table > tbody > tr.selecionado td {
-            background: ${cor3} !important;
+            background: ${cores[2]} !important;
         }
         .rich-table .acoes a:hover,
         table.listagem .acoes a:hover {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         .rich-table > tbody > tr.destaque td,
         table.listagem > tbody > tr.destaque td {
-            background: ${cor3} !important;
+            background: ${cores[2]} !important;
         }
         .rich-table > tbody > tr.secao td,
         table.listagem > tbody > tr.secao td {
-            border-bottom: 1px solid ${cor1};
+            border-bottom: 1px solid ${cores[0]};
         }
         .rich-table > tbody > tr.selecionado td,
         table.listagem > tbody > tr.selecionado td {
-            background: ${cor3} !important;
+            background: ${cores[2]} !important;
         }
         .page-header {
-            color: ${cor2};
+            color: ${cores[1]};
         }
         .list-selected .item {
-            background-color: ${cor3};
+            background-color: ${cores[2]};
         }
         a {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         a:focus,
         a:hover {
-            color: ${cor2};
+            color: ${cores[1]};
         }
         a .bordered-hover:hover {
-            border-left: 5px solid ${cor1};
+            border-left: 5px solid ${cores[0]};
         }
         .bg-claro {
-            background-color: ${cor3} !important;
+            background-color: ${cores[2]} !important;
         }
         #carousel-noticias .box-noticia-conteudo h4 {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         #carousel-noticias .carousel-indicators li.active {
-            background-color: ${cor1};
+            background-color: ${cores[0]};
         }
         .tabela-selecao-vinculo .check-ativo {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         .tabela-selecao-vinculo tr.selecionado > td {
-            background-color: ${cor3} !important;
+            background-color: ${cores[2]} !important;
         }
         .sm-blue {
-            background: ${cor1};
+            background: ${cores[0]};
         }
         .sm-blue ul a.highlighted,
         .sm-blue ul a:active,
         .sm-blue ul a:focus,
         .sm-blue ul a:hover {
-            border-left: 5px solid ${cor1};
+            border-left: 5px solid ${cores[0]};
         }
         .fc-unthemed .fc-today {
-            background: ${cor3};
+            background: ${cores[2]};
         }
         .fc-toolbar button {
-            color: ${cor1};
+            color: ${cores[0]};
         }
         .btn-light:focus,
         .btn-light:hover,
         .btn-primary {
-            background-color: ${cor1} !important;
-            border-color: ${cor1} !important;
+            background-color: ${cores[0]} !important;
+            border-color: ${cores[0]} !important;
         }
         .btn-primary:focus,
         .btn-primary:hover {
-            background-color: ${cor2} !important;
-            border-color: ${cor2} !important;
+            background-color: ${cores[1]} !important;
+            border-color: ${cores[1]} !important;
         }
         .progress-bar {
-            background-color: ${cor2};
-            background-image: linear-gradient(${cor1} 0, ${cor2} 100%);
+            background-color: ${cores[1]};
+            background-image: linear-gradient(${cores[0]} 0, ${cores[1]} 100%);
         }
         caption.formulario {
-            background-color: ${cor1};
+            background-color: ${cores[0]};
         }
         table.formulario > caption,
         table.listagem > caption,
         table.rich-table.listagem > caption,
         table.subFormulario > caption,
         table.visualizacao > caption {
-            background: ${cor1};
+            background: ${cores[0]};
         }
         h3.tituloTabela {
-            background: ${cor1};
+            background: ${cores[0]};
         }
         .page-sidebar .sidebar-menu li:not(.open):hover:before {
-            background-color: ${cor4};
+            background-color: ${cores[3]};
         }
         .table tr.destaque {
-            background-color: ${cor4} !important;
+            background-color: ${cores[3]} !important;
         }
         .rich-table tr.destaque,
         table.listagem tr.destaque {
-            background-color: ${cor4} !important;
+            background-color: ${cores[3]} !important;
         }
         .list-selected .item .item-remove {
-            color: ${cor4};
+            color: ${cores[3]};
         }
         .btn-light {
-            background-color: ${cor4};
+            background-color: ${cores[3]};
         }
         .painel-numerico {
-            background: ${cor4};
+            background: ${cores[3]};
         }
         .sm-blue a.current,
         .sm-blue a.current:active,
@@ -174,25 +175,25 @@ let generateCSSTheme = function (cor1, cor2, cor3, cor4) {
         .sm-blue ul a.current:active,
         .sm-blue ul a.current:focus,
         .sm-blue ul a.current:hover {
-            background: ${cor4};
+            background: ${cores[3]};
         }
         .sm-blue a span.sub-arrow {
-            border-color: ${cor4} transparent transparent;
+            border-color: ${cores[3]} transparent transparent;
         }
         .sm-blue ul a span.sub-arrow,
         .sm-blue-vertical a span.sub-arrow {
-            border-color: transparent transparent transparent ${cor4};
+            border-color: transparent transparent transparent ${cores[3]};
         }
         .sm-blue span.scroll-down-arrow,
         .sm-blue span.scroll-up-arrow {
-            border-color: transparent transparent ${cor4};
+            border-color: transparent transparent ${cores[3]};
         }
         .sm-blue span.scroll-down-arrow {
-            border-color: ${cor4} transparent transparent;
+            border-color: ${cores[3]} transparent transparent;
         }
         .btn-light {
-            background-color: ${cor4} !important;
-            border-color: ${cor4} !important;
+            background-color: ${cores[3]} !important;
+            border-color: ${cores[3]} !important;
         }
         caption.subFormulario,
         table caption.subTabela,
@@ -203,7 +204,13 @@ let generateCSSTheme = function (cor1, cor2, cor3, cor4) {
         table.listagem > tbody > tr.secao > td,
         table.listagem > tbody > tr.secao > th,
         td.subFormulario {
-            border-bottom: 1px solid ${cor4};
+            border-bottom: 1px solid ${cores[3]};
+        }
+        body,html {
+          background-color: ${cores[4]};
+        }
+        #ufrn-cabecalho {
+          background-color: ${cores[5]};
         }
     `;
 }
@@ -211,17 +218,41 @@ let generateCSSTheme = function (cor1, cor2, cor3, cor4) {
 function generateThemeButton() {
   let menuItem = document.createElement('li');
   let menuContent = document.createElement('ul');
+  let menuCores = document.createElement('div');
+  let menuBotoes = document.createElement('div');
+  menuCores.id = "menu-cores";
+  menuBotoes.id = "menu-botoes";
   menuContent.classList.add('acoes-usuario');
   menuItem.appendChild(menuContent);
   
   let getCurrentColor = {
-    0: rgbToHex(getComputedStyle(document.getElementById('main-menu')).backgroundColor),
-    1: rgbToHex(getComputedStyle(document.getElementById('ufrn-rodape')).backgroundColor),
-    2: rgbToHex(getComputedStyle(document.querySelector('td.periodo')).backgroundColor),
-    3: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow')).borderTopColor)
+    0: {
+      cor: rgbToHex(getComputedStyle(document.getElementById('barra-sistema')).backgroundColor),
+      texto: 'Barra do Sistema, alguns textos e abas'
+    },
+    1: {
+      cor: rgbToHex(getComputedStyle(document.getElementById('ufrn-rodape') || document.getElementById('barra-sistema')).backgroundColor),
+      texto: 'Rodapé'
+    },
+    2: {
+      cor: rgbToHex(getComputedStyle(document.querySelector('td.periodo') || document.getElementById('barra-sistema')).backgroundColor),
+      texto: 'Alguns headers de tabelas'
+    },
+    3: {
+      cor: rgbToHex(getComputedStyle(document.querySelector('span.sub-arrow') || document.getElementById('barra-sistema')).borderTopColor),
+      texto: 'Setas'
+    },
+    4: {
+      cor: rgbToHex(getComputedStyle(document.querySelector('body')).backgroundColor),
+      texto: 'Background'
+    },
+    5: {
+      cor: rgbToHex(getComputedStyle(document.getElementById('ufrn-cabecalho')).backgroundColor),
+      texto: 'Barra do Painel'
+    }
   }
 
-  function generateColorInputButton(id, value) {
+  function generateColorInputButton(id, value, title) {
     let colorButton = document.createElement('input');
     colorButton.id = id;
     colorButton.classList.add('input-color-theme');
@@ -229,6 +260,7 @@ function generateThemeButton() {
     colorButton.value = value;
     colorButton.style.width = '71px';
     colorButton.style.height = '25px';
+    colorButton.title = title;
     colorButton.onclick = function(e) {
       e.stopPropagation();
     };
@@ -238,14 +270,14 @@ function generateThemeButton() {
   function toggleThemePanel(status) {
     if (status) {
       applyThemeButton.style.display = 'Unset';
-      toggleThemeButton.innerText = 'Desativar'
+      toggleThemeButton.innerText = 'Desativar tema'
       toggleThemeButton.style.width = '50%';
       document.querySelectorAll('.input-color-theme').forEach((element)=>{
         element.style.display = 'Unset';
       });
     } else {
       applyThemeButton.style.display = 'None';
-      toggleThemeButton.innerText = 'Ativar'
+      toggleThemeButton.innerText = 'Ativar tema'
       toggleThemeButton.style.width = '100%';
       document.querySelectorAll('.input-color-theme').forEach((element)=>{
         element.style.display = 'None';
@@ -253,8 +285,8 @@ function generateThemeButton() {
     }
   }
 
-  for (let i = 0; i < 4; i++) {
-    menuContent.appendChild(generateColorInputButton(`cor${i}`, getCurrentColor[i]));
+  for (let i = 0; i < Object.keys(getCurrentColor).length; i++) {
+    menuCores.appendChild(generateColorInputButton(`cor${i}`, getCurrentColor[i].cor, getCurrentColor[i].texto));
   }
 
   let applyThemeButton = document.createElement('button');
@@ -294,11 +326,13 @@ function generateThemeButton() {
     });
     e.stopPropagation();
   };
+  menuBotoes.appendChild(applyThemeButton);
+  menuBotoes.appendChild(toggleThemeButton);
 
   isThemeActivated().then(toggleThemePanel);
 
-  menuContent.appendChild(applyThemeButton);
-  menuContent.appendChild(toggleThemeButton);
+  menuContent.appendChild(menuCores);
+  menuContent.appendChild(menuBotoes);
 
   return menuItem;
 }
@@ -307,10 +341,12 @@ async function applyThemeColors() {
   await loadThemeColors().then((result)=>{
     let themeTextNode = document.createTextNode(
       generateCSSTheme(
-        result['cor0'], 
-        result['cor1'], 
-        result['cor2'], 
-        result['cor3']
+        result['cor0'],
+        result['cor1'],
+        result['cor2'],
+        result['cor3'],
+        result['cor4'],
+        result['cor5'],
       ));
     let themeStyle = document.createElement('style');
     themeStyle.appendChild(themeTextNode);
@@ -344,7 +380,9 @@ function saveThemeColors() {
     cor0: document.getElementById('cor0').value, 
     cor1: document.getElementById('cor1').value, 
     cor2: document.getElementById('cor2').value, 
-    cor3: document.getElementById('cor3').value
+    cor3: document.getElementById('cor3').value,
+    cor4: document.getElementById('cor4').value,
+    cor5: document.getElementById('cor5').value
   });
 }
 
