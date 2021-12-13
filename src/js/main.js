@@ -165,7 +165,7 @@ if (TIME_BOARD_ENROLLMENT_TABLE != null) {
   }
 }
 
-if (ALL_CLASSES_TABLE) {
+if (ALL_CLASSES_TABLE && ALL_CLASSES_TABLE.caption.textContent.includes('Todas as Turmas')) {
   let tbody = ALL_CLASSES_TABLE.tBodies[1];
   let rows = tbody.querySelectorAll('.listagem tr.linhaPar, .listagem tr.linhaImpar');
   for (let i = 0; i < rows.length; i++) {
