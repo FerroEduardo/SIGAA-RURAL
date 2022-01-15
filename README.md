@@ -13,6 +13,11 @@
 ## ATENÇÃO!!!
 É quase certeza que ao utilizar a extensão, você estará utilizando o SIGAA em ambiente de produção. Logo, se não souber com certeza absoluta o que está fazendo, não mexa.
 
+[Firefox Addons](https://addons.mozilla.org/pt-BR/firefox/addon/sigaa-rural/)  
+<!-- [Gerenciador de versões](https://ferroeduardo.github.io/SIGAA-RURAL/) -->
+
+----
+
 ### Iniciando com extensões do Chrome
 [Getting Started Tutorial](https://developer.chrome.com/extensions/getstarted)
 
