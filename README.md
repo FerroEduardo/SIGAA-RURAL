@@ -10,11 +10,14 @@
     Extensão para navegadores com o objetivo de melhorar a usabilidade do SIGAA da UFRRJ.
 </p>
 
+## Como instalar?
+
+Acesse [essa página](https://ferroeduardo.github.io/SIGAA-RURAL/) e selecione a versão que deseja instalar. Também é possível instalar pela página de [Releases](https://github.com/FerroEduardo/SIGAA-RURAL/releases)
+
+<!-- [Firefox Addons](https://addons.mozilla.org/pt-BR/firefox/addon/sigaa-rural/) -->
+
 ## ATENÇÃO!!!
 É quase certeza que ao utilizar a extensão, você estará utilizando o SIGAA em ambiente de produção. Logo, se não souber com certeza absoluta o que está fazendo, não mexa.
-
-[Firefox Addons](https://addons.mozilla.org/pt-BR/firefox/addon/sigaa-rural/)  
-<!-- [Gerenciador de versões](https://ferroeduardo.github.io/SIGAA-RURAL/) -->
 
 ----
 
