@@ -53,6 +53,12 @@ const IS_BETA = document.querySelector('.logo > span:nth-child(2)');
 
 const ALL_CLASSES_TABLE = document.querySelector("table.listagem:not([id^='lista-turmas'])");
 
+const PAGE_HEADER = document.querySelector('.page-header h1');
+
+const ADDON_MANIFEST = browser.runtime.getManifest();
+
+const ADDON_VERSION = ADDON_MANIFEST['version'];
+
 const CLASS_TIMES = {
   M: {
       1: "07:00 - 08:00 | ",
