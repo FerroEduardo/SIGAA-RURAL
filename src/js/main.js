@@ -120,7 +120,7 @@ if(EQUIVALENT_SUBJECTS != null) {
 }
 
 //Estou na parte de se inscrever em disciplinas abertas
-if(OPEN_SUBJECTS != null) {
+if(OPEN_SUBJECTS != null && PAGE_HEADER && PAGE_HEADER.textContent !== 'Matrícula  Extraordinária') {
   /*Se estiver na página de disciplinas abertas,
     define o width da coluna de horário como 18%
     para uma visualização melhor
