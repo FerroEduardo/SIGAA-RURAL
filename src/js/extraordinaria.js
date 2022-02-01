@@ -8,7 +8,7 @@ if (MATRICULA_EXTRAORDIONARIA_TABLE != null && PAGE_HEADER && PAGE_HEADER.textCo
     code = code.split("(")[0];
     if (code.length > 0) {
       currentLine.children[4].classList.add('horario-tooltip');
-      let result = discoverTimeToSubjectsAlternative(code);
+      let result = discoverTimeToSubjects(code);
       result.classList.add('tooltiptext');
       currentLine.children[4].appendChild(result);
     }

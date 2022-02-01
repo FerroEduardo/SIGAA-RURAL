@@ -5,7 +5,7 @@ const discoverTimeToBoard = (code) => {
   return time;
 }
 
-function discoverTimeToSubjectsAlternative(code) {
+function discoverTimeToSubjects(code) {
   /*
     Para cobrir o caso onde por exemplo a disciplina começa às 17 e termina às
     18, o código vindo do parâmetro será +/- assim (24T5 24N1), por isso o split

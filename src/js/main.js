@@ -10,7 +10,7 @@ if(MAIN_SCHEDULEBOARD_BODY != null) {
       horaryColumn.setAttribute("width", "50%");
       let code = horaryColumn.children[0].innerHTML;
       horaryColumn.children[0].textContent = "";
-      horaryColumn.children[0].appendChild(discoverTimeToSubjectsAlternative(code));
+      horaryColumn.children[0].appendChild(discoverTimeToSubjects(code));
     }
   }
 }
@@ -76,7 +76,7 @@ if (SIGAA_BETA !== null) {
     let code = currentLine.children[3].innerHTML;
     if (code.length > 0) {
       currentLine.children[3].textContent = "";
-      currentLine.children[3].appendChild(discoverTimeToSubjectsAlternative(code));
+      currentLine.children[3].appendChild(discoverTimeToSubjects(code));
     }
   }
 }
@@ -91,7 +91,7 @@ if(SUBJECTS != null) {
       logo é necessário descer mais um nível na árvore (children[0]) para
       conseguir acessar o código com o horário da disciplina
     */ 
-    let result = discoverTimeToSubjectsAlternative(SUBJECTS[i].children[5].children[0].innerHTML)
+    let result = discoverTimeToSubjects(SUBJECTS[i].children[5].children[0].innerHTML)
     SUBJECTS[i].children[5].children[0].textContent = "";
     SUBJECTS[i].children[5].children[0].appendChild(result);
   }
@@ -113,7 +113,7 @@ if(EQUIVALENT_SUBJECTS != null) {
       logo é necessário descer mais um nível na árvore (children[0]) para
       conseguir acessar o código com o horário da disciplina
     */
-    let result = discoverTimeToSubjectsAlternative(EQUIVALENT_SUBJECTS[i].children[6].children[0].innerHTML)
+    let result = discoverTimeToSubjects(EQUIVALENT_SUBJECTS[i].children[6].children[0].innerHTML)
     EQUIVALENT_SUBJECTS[i].children[6].children[0].textContent = "";
     EQUIVALENT_SUBJECTS[i].children[6].children[0].appendChild(result);
   }
@@ -139,7 +139,7 @@ if(OPEN_SUBJECTS != null && PAGE_HEADER && PAGE_HEADER.textContent !== 'Matrícu
       logo é necessário descer mais um nível na árvore (children[0]) para
       conseguir acessar o código com o horário da disciplina
     */
-    let result = discoverTimeToSubjectsAlternative(OPEN_SUBJECTS[i].children[7].children[0].innerHTML)
+    let result = discoverTimeToSubjects(OPEN_SUBJECTS[i].children[7].children[0].innerHTML)
     OPEN_SUBJECTS[i].children[7].children[0].textContent = "";
     OPEN_SUBJECTS[i].children[7].children[0].appendChild(result);
   }
@@ -148,7 +148,7 @@ if(OPEN_SUBJECTS != null && PAGE_HEADER && PAGE_HEADER.textContent !== 'Matrícu
 if (QUERIED_SUBJECTS != null) {
   for (let i = 0; i < QUERIED_SUBJECTS.length; i++) {
     QUERIED_SUBJECTS[i].classList.add('horario-tooltip');
-    let result = discoverTimeToSubjectsAlternative(QUERIED_SUBJECTS[i].innerHTML)
+    let result = discoverTimeToSubjects(QUERIED_SUBJECTS[i].innerHTML)
     result.classList.add('tooltiptext');
     QUERIED_SUBJECTS[i].appendChild(result);
   }
@@ -170,7 +170,7 @@ if (ALL_CLASSES_TABLE && ALL_CLASSES_TABLE.caption.textContent.includes('Todas a
   let rows = tbody.querySelectorAll('.listagem tr.linhaPar, .listagem tr.linhaImpar');
   for (let i = 0; i < rows.length; i++) {
     rows[i].children[3].classList.add('horario-tooltip');
-    let result = discoverTimeToSubjectsAlternative(rows[i].children[3].innerHTML)
+    let result = discoverTimeToSubjects(rows[i].children[3].innerHTML)
     result.classList.add('tooltiptext');
     result.classList.add('previous-classes');
     rows[i].children[3].appendChild(result);
