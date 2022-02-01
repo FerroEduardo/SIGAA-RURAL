@@ -189,4 +189,8 @@ if (IS_BETA) {
       detalhesUsuario.appendChild(generateThemeButton());
     }
   });
+  document.querySelector('.ufrn-container .matricula').appendChild(getVersionContainer(true));
+} else {
+  document.querySelector('#info-usuario .periodo-atual').appendChild(getVersionContainer(false));
 }
+console.log(ADDON_MANIFEST);

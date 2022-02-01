@@ -1,6 +1,6 @@
 {
   "name": "SIGAA Rural",
-  "version": "1.8.2",
+  "version": "1.9.0",
   "description": "Melhorias de usabilidade no SIGAA da UFRRJ",
   "content_scripts": [
     {

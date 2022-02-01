@@ -106,3 +106,20 @@ function parseDay(array) {
 
   return result;
 }
+
+function getVersionContainer(isBeta) {
+  let container;
+  let content;
+  if (isBeta) {
+    container = document.createElement('small');
+    content = document.createElement('span');
+  } else {
+    container = document.createElement('div');
+    container.style.float = 'right';
+    content = document.createElement('strong');
+  }
+  container.textContent = 'Add-on versão: ';
+  content.textContent = ADDON_VERSION;
+  container.appendChild(content);
+  return container;
+}
