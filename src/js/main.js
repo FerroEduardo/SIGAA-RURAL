@@ -177,6 +177,13 @@ if (ALL_CLASSES_TABLE && ALL_CLASSES_TABLE.caption.textContent.includes('Todas a
   }
 }
 
+if (FORM_MENU) {
+  const menuAcoesTurma = document.querySelector('#formAcoesTurma');
+  const downloadButton = getDownloadAllButton();
+
+  menuAcoesTurma.prepend(downloadButton);
+}
+
 if (IS_BETA) {
   isThemeActivated().then((isActivated) => {
     const detalhesUsuario = document.querySelector('#detalhes-usuario');
@@ -193,4 +200,3 @@ if (IS_BETA) {
 } else {
   document.querySelector('#info-usuario .periodo-atual').appendChild(getVersionContainer(false));
 }
-console.log(ADDON_MANIFEST);

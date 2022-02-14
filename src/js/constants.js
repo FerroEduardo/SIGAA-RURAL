@@ -59,6 +59,8 @@ const ADDON_MANIFEST = browser.runtime.getManifest();
 
 const ADDON_VERSION = ADDON_MANIFEST['version'];
 
+const FORM_MENU = document.querySelector('#formMenu');
+
 const CLASS_TIMES = {
   M: {
       1: "07:00 - 08:00 | ",

@@ -123,3 +123,25 @@ function getVersionContainer(isBeta) {
   container.appendChild(content);
   return container;
 }
+
+function getDownloadAllButton() {
+  const spanDownloadAll = document.createElement('span');
+  spanDownloadAll.id = 'download-all';
+  spanDownloadAll.classList.add('ui-button', 'ui-widget', 'ui-state-default', 'ui-corner-all', 'ui-button-text-icon-primary');
+  spanDownloadAll.onclick = function () {
+    const downloadableElements = document.querySelectorAll('#formAva a[onclick]');
+    downloadableElements.forEach(e => e.click());
+  };
+
+  const spanIcon = document.createElement('span');
+  spanIcon.classList.add('ui-button-icon-primary', 'ui-icon', 'ui-icon-arrowthickstop-1-s');
+
+  const spanText = document.createElement('span');
+  spanText.classList.add('ui-button-text');
+  spanText.textContent = 'Baixar tudo';
+
+  spanDownloadAll.appendChild(spanIcon);
+  spanDownloadAll.appendChild(spanText);
+
+  return spanDownloadAll;
+}

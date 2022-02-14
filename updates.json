@@ -1,0 +1,32 @@
+{
+    "addons": {
+      "{457cb1bc-f2ee-4778-af56-e065d0e35c46}": {
+        "updates": [
+            {
+              "version": "1.10.0",
+              "update_link": "https://github.com/FerroEduardo/SIGAA-RURAL/releases/download/1.10.0/sigaa_rural-1.10.0-fx.xpi"
+            },
+            {
+              "version": "1.9.0",
+              "update_link": "https://github.com/FerroEduardo/SIGAA-RURAL/releases/download/1.9.0/sigaa_rural-1.9.0-fx.xpi"
+            },
+            {
+                "version": "1.8.1",
+                "update_link": "https://github.com/FerroEduardo/SIGAA-RURAL/releases/download/1.8.1/sigaa_rural-1.8.1-fx.xpi"
+            },
+            {
+                "version": "1.7.0",
+                "update_link": "https://github.com/FerroEduardo/SIGAA-RURAL/releases/download/1.7.0/sigaa_rural-1.7.0-fx.xpi"
+            },
+            {
+                "version": "1.6.8",
+                "update_link": "https://github.com/FerroEduardo/SIGAA-RURAL/releases/download/1.6.8/sigaa_rural-1.6.8-fx.xpi"
+            },
+            {
+                "version": "1.6.6",
+                "update_link": "https://github.com/FerroEduardo/SIGAA-RURAL/releases/download/1.6.6/sigaa_rural-1.6.6-fx.xpi"
+            }
+        ]
+      }
+    }
+  }

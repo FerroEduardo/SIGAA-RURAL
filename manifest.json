@@ -1,6 +1,6 @@
 {
   "name": "SIGAA Rural",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "Melhorias de usabilidade no SIGAA da UFRRJ",
   "content_scripts": [
     {
@@ -19,5 +19,10 @@
     "storage"
   ],
   "author": "Eduardo Cabral - Aluno de Ciência da Computação da UFRRJ",
-  "manifest_version": 2
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "update_url": "https://raw.githubusercontent.com/FerroEduardo/SIGAA-RURAL/main/updates.json"
+    }
+  }
 }
