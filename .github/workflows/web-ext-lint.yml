@@ -28,4 +28,4 @@ jobs:
         with:
           cmd: lint
           source: .
-          channel: listed
+          channel: unlisted
