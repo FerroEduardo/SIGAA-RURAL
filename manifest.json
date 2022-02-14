@@ -1,6 +1,6 @@
 {
   "name": "SIGAA Rural",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "Melhorias de usabilidade no SIGAA da UFRRJ",
   "content_scripts": [
     {
@@ -22,6 +22,7 @@
   "manifest_version": 2,
   "browser_specific_settings": {
     "gecko": {
+      "id": "{457cb1bc-f2ee-4778-af56-e065d0e35c46}",
       "update_url": "https://raw.githubusercontent.com/FerroEduardo/SIGAA-RURAL/main/updates.json"
     }
   }
