@@ -1,5 +1,5 @@
 <h1 align="center">
-  SIGAA-RURAL
+  SIGAA-RURAL Firefox
 </h1>
 
 <h2 align="center">
